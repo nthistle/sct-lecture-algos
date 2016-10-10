@@ -1,10 +1,10 @@
-/*
+/**
 * Union-find data structure
 * Loosely based on Robert Sedgewick's and Kevin Wayne's implementation
 * Sauce: ftp://91.193.236.10/pub/docs/linux-support/computer%20science/data%20Structures%20&%20algorithms/%5BPearson%5D%20-%20Algorithms,%204th%20ed.%20-%20%5BSedgewick,%20Wayne%5D.pdf
 * By Sarkis Ter Martirosyan and Neil Thistlethwaite
 * Reuse permitted with credit where credit is due
-*/
+**/
 
 public class UnionFind
 {
@@ -15,7 +15,7 @@ public class UnionFind
 
 	/**
 	*Instantiates an emtpy union-find data structure with n nodes, [0, n).
-	*If data type for V parents isn't an int, use a Symbol Table (i.e. HashMap)
+	*If data type for node id's isn't an int, use a Symbol Table (i.e. HashMap)
 	*to convert to int for UF 
 	*Algorithm: Weighted Quick Union
 	*Constructor: O(n) | Union: O(lg n) | Find: O(lg n)
@@ -34,7 +34,7 @@ public class UnionFind
 	}
 
 	/**
-	*Return component parent for p
+	*Return component id for p
 	*
 	*@param p a node parent
 	*@throws AssertionError if p < 0 or p >= parent.length
@@ -86,9 +86,29 @@ public class UnionFind
 	*@throws AssertionError if not both {@code 0 <= v < n} and {@code 0 <= w < n}
 	**/
 	public boolean connected(int v, int w) {return this.find(v) == this.find(w);}
-
-	public static void main(String[] args) {
-		
-	}
 	
+	/**
+	*Returns a string reperesentation of the UnionFind data structure
+	*
+	*@return A string with the number of components
+	**/	
+	public String toString() {
+		return "Components: " + this.count;
+	}
+
+	/**
+	*Demonstration of the abilities of this UnionFind implementation
+	*
+	*@param args the terminal arguments
+	**/
+	public static void main(String[] args) {
+		UnionFind uf = new UnionFind(6);
+		uf.union(1, 2);
+		uf.union(1, 3);
+		uf.union(2, 3);
+		uf.union(4, 5);
+		//Graph: 
+		System.out.println(uf);
+	}			
 }
+	
