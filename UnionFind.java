@@ -1,8 +1,11 @@
+import java.util.*;
+import java.io.*;
+
 /**
-* Union-find data structure
-* Loosely based on Robert Sedgewick's and Kevin Wayne's implementation
-* Sauce: ftp://91.193.236.10/pub/docs/linux-support/computer%20science/data%20Structures%20&%20algorithms/%5BPearson%5D%20-%20Algorithms,%204th%20ed.%20-%20%5BSedgewick,%20Wayne%5D.pdf
-* By Sarkis Ter Martirosyan and Neil Thistlethwaite
+* Union-find data structure<br>
+* Loosely based on Robert Sedgewick's and Kevin Wayne's implementation<br>
+* Sauce: ftp://91.193.236.10/pub/docs/linux-support/computer%20science/data%20Structures%20&%20algorithms/%5BPearson%5D%20-%20Algorithms,%204th%20ed.%20-%20%5BSedgewick,%20Wayne%5D.pdf<br>
+* By Sarkis Ter Martirosyan and Neil Thistlethwaite<br>
 * Reuse permitted with credit where credit is due
 **/
 
@@ -100,14 +103,19 @@ public class UnionFind
 	*Demonstration of the abilities of this UnionFind implementation
 	*
 	*@param args the terminal arguments
+	*@throws IOException if the specified file doesn't exist
 	**/
-	public static void main(String[] args) {
-		UnionFind uf = new UnionFind(6);
-		uf.union(1, 2);
-		uf.union(1, 3);
-		uf.union(2, 3);
-		uf.union(4, 5);
-		//Graph: 
+	public static void main(String[] args) throws IOException {
+		//args[0] = name of text file to read
+		Scanner fin = new Scanner(new File(args[0]));
+		int n = fin.nextInt();
+		UnionFind uf = new UnionFind(n);
+		while(fin.hasNextInt()) {
+			int v = fin.nextInt();
+			int w = fin.nextInt();
+			uf.union(v, w);
+			System.out.println("Joining: " + v + " and " + w);
+		}
 		System.out.println(uf);
 	}			
 }
