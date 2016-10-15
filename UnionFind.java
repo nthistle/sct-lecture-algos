@@ -117,6 +117,6 @@ public class UnionFind
 			System.out.println("Joining: " + v + " and " + w);
 		}
 		System.out.println(uf);
-	}			
+	}
 }
 	
