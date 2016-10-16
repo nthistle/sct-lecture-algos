@@ -70,7 +70,7 @@ public class UnionFind
 			this.size[i] += this.size[j];
 		}
 		this.count--;
-	}	
+	}
 	
 	/**
 	*Returns the number of connected components
