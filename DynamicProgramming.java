@@ -11,7 +11,12 @@ public class DynamicProgramming
    public static void main(String[] args) {
       guardMark();
    }
-
+   
+  /**
+   * USACO December 2014, Gold Problem 1: Guard Mark
+   * http://usaco.org/index.php?page=viewproblem2&cpid=494
+   * Uses subset dynamic programming, runs in O(2^n)
+   */
    public static void guardMark() {
       Scanner sc = new Scanner(System.in);
       int n = sc.nextInt();
